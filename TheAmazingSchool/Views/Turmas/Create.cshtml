@@ -1,0 +1,38 @@
+﻿@model TheAmazingSchool.Models.Dominio.Entidades.Turma
+@using TheAmazingSchool.Models
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Turma</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NumeroDaTurma" class="control-label"></label>
+                <select asp-for="NumeroDaTurma" asp-items="Html.GetEnumSelectList<TheAmazingSchool.Models.Dominio.Enum.EnumTurma>()"class="form-control">
+                    <option selected="selected" value="">SELECT</option>
+                </select>
+                <span asp-validation-for="NumeroDaTurma" class="text-danger"></span>
+
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
